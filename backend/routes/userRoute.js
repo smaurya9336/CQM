@@ -13,9 +13,7 @@ userRoute.post('/login', async (req, res)=>{
   const user = await User.findOne({email})
   if(user){
     if(user.password===password){
-        console.log(user._id);
-        
-      return res.send({msg:"Login Success",id:user._id});
+      return res.send({msg:"Login Success", id:user._id});
     }
     else{
       return res.send({msg:"Invalid Password"})
@@ -25,8 +23,6 @@ userRoute.post('/login', async (req, res)=>{
     return res.send({msg:"User Not Exist"});
   }
 })
-
-
 
 
 userRoute.get('/', async (req, res) =>{
